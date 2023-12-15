@@ -11,21 +11,15 @@
 '''
 
 # Зчитуємо введене користувачем число
-user_input = int(input("Введіть ціле число: "))
+user_input = input("Введіть ціле число: ")
 
-# Перетворюємо введене число в рядок для зручності операцій
-num_str = str(user_input)
+max_value = 0
 
-# Ініціалізуємо максимальне значення та індекс цифри, яку потрібно видалити
-max_value = float('-inf')
-index_to_remove = None
-
-# Проходимося по всіх цифрах числа та знаходимо ту, яку можна видалити
-for i in range(len(num_str)):
-    current_num = int(num_str[:i] + num_str[i+1:])
-    if current_num > max_value:
-        max_value = current_num
-        index_to_remove = i
+# Проходимося по всім цифрам числа та знаходимо ту, яку можна видалити
+for i in range(len(user_input)):
+    current_num = int(user_input[:i] + user_input[i+1:])
+    max_value = max(max_value, current_num)
 
 # Виводимо максимально можливе число після видалення однієї цифри
 print(f"Максимально можливе число після видалення однієї цифри: {max_value}")
+
